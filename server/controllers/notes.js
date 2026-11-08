@@ -27,4 +27,19 @@ router.post("/create", async (req,res) =>{
     }
 })
 
+router.get("/get", async (req,res) =>{
+    try {
+        const notes = await noteModel.find()
+
+        return res.status(200).json({
+            "msg" : "Here are all notes",notes
+        })
+    } catch (error) {
+         console.log(error);
+        res.status(500).json({
+            "msg" : "internal server error :("
+        })
+    }
+})
+
 export default router
