@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cors from "cors"
 dotenv.config()
 import "./config/database.js"
+import notesRouter from "./controllers/notes.js"
 
 const app = express()
 
@@ -22,6 +23,8 @@ app.get("/health", (req,res) =>{
         "msg" : "APIs are eating apple >_<"
     })
 })
+
+app.use("/notes", notesRouter)
 
 app.listen(port, () =>{
     console.log("Server is running ");
