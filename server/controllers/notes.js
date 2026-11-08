@@ -42,4 +42,28 @@ router.get("/get", async (req,res) =>{
     }
 })
 
+router.delete("/delete/:id", async (req,res) =>{
+    try {
+        const {id} = req.params
+
+        const deleteNote = await noteModel.findByIdAndDelete(id)
+
+        if(!deleteNote){
+            return res.status(404).json({
+                "msg" : "note not found"
+            })
+        }
+
+        res.status(200).json({
+            "msg" : "note deleted succcessfully"
+        })
+
+    } catch (error) {
+          console.log(error);
+        res.status(500).json({
+            "msg" : "internal server error :("
+        })
+    }
+})
+
 export default router
