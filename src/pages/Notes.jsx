@@ -77,7 +77,7 @@ function Notes(){
                                 </p>
 
                                 <button
-                                    onClick={() => deleteNote(note._id)}
+                                    onClick={() => deleteNotes(note._id)}
                                    
                                 >
                                     Delete

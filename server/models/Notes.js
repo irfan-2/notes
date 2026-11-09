@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const noteSchema = new mongoose.Schema({
-    notes: {
+    content: {
          type: String,
         required: true,
         trim: true
